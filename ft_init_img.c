@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:28:57 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/08 13:57:08 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:07:34 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_init_img(t_img *img, t_map *map)
 {
+	img->e = 0;
 	img->left = NULL;
 	img->right = NULL;
 	img->up = NULL;

@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 14:14:47 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/08 13:25:38 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:20:32 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,11 @@ void	ft_error_map(int a)
 	if (a == 9)
 		write(1, "Couldn't load images\n", 21);
 	exit(EXIT_FAILURE);
+}
+
+int	red_cross(t_img	*img)
+{
+	img->e = 0;
+	exit(EXIT_SUCCESS);
+	return (0);
 }

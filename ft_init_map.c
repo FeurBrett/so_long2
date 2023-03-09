@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:58:49 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/08 16:31:28 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:06:59 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_fill_map(t_map *map, char *txt)
 	map->p[1] = 0;
 	map->moves = 0;
 	map->coins = 0;
+	map->collected = 0;
 	while (map->map[c])
 		c++;
 	map->width = len * 30;

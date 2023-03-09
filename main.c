@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:27:56 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/01 16:08:22 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:36:15 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,14 @@ int	main(int argc, char **argv)
 void	so_long(t_map *map)
 {
 	t_img	img;
+	t_data	data;
 
 	ft_init_img(&img, map);
 	ft_fill_img(&img);
 	ft_loop_map(&img, map);
+	ft_fill_data(&data, &img, map);
+	mlx_hook(img.mlx_win, 17, 0, &red_cross, &img);
+	mlx_hook(img.mlx_win, 2, 0, &ft_keycode, &data);
 	mlx_loop(img.mlx);
 }
 
