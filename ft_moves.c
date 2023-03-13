@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 13:08:56 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 11:53:52 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:38:19 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,30 @@ void	ft_find_p(t_map *map, int i, int j)
 		}
 		i++;
 	}
+	printf ("map p->0 = %d , map->w/30 = %d\nmap p[1] = %d, map->h = %d\n", map->p[0], map->w / 30, map->p[1], map->h /33);
+	if (map->p[0] == map->w / 30 && map->p[1] == map->h / 33)
+		ft_find_e(map, 0, 0);
 	printf ("p is in : %d, %d \n", map->p[0], map->p[1]);
+}
+
+void	ft_find_e(t_map *map, int i, int j)
+{
+	printf("find p\n");
+	while (map->map[i])
+	{
+		j = 0;
+		while (map->map[i][j])
+		{
+			if (map->map[i][j] == 'E')
+			{
+				map->p[1] = i;
+				map->p[0] = j;
+			}
+			j++;
+		}
+		i++;
+	}
+	printf ("e is in : %d, %d \n", map->p[0], map->p[1]);
 }
 
 void	ft_moves(t_data *data, int keycode)

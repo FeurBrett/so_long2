@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:30:01 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 11:01:54 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 12:09:11 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	ft_error_map(int a);
 
 void	ft_moves(t_data *data, int keycode);
 void	ft_find_p(t_map *map, int i, int j);
+void	ft_find_e(t_map *map, int i, int j);
 void	move_up(t_data *data, int x, int y);
 void	move_right(t_data *data, int x, int y);
 void	move_left(t_data *data, int x, int y);

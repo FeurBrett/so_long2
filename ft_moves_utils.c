@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:52:59 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 11:47:06 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:14:43 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,19 @@ void	move_up(t_data *data, int x, int y)
 {
 	printf("move up\n");
 	data->map->moves++;
-	if (data->map->map[y][x] == 'C')
+	if (data->map->map[y - 1][x] == 'C')
 		data->map->collected += 1;
-	if (data->map->map[y][x] == 'E')
+	if (data->map->map[y - 1][x] == 'E')
+	{
 		ft_check_win(data->map, data->img);
-	data->map->map[y - 1][x] = 'P';
+		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win,
+			data->img->path, x * 30, y * 33);
+	}
+	else
+	{
+		data->map->map[y - 1][x] = 'P';
+		data->img->e = 0;
+	}
 	data->map->map[y][x] = '0';
 	data->map->p[0] = y;
 	data->map->p[1] = x;
@@ -31,11 +39,19 @@ void	move_down(t_data *data, int x, int y)
 {
 	printf("move down\n");
 	data->map->moves++;
-	if (data->map->map[y][x] == 'C')
+	if (data->map->map[y + 1][x] == 'C')
 		data->map->collected += 1;
-	if (data->map->map[y][x] == 'E')
+	if (data->map->map[y + 1][x] == 'E')
+	{
 		ft_check_win(data->map, data->img);
-	data->map->map[y + 1][x] = 'P';
+		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win,
+			data->img->path, x * 30, y * 33);
+	}
+	else
+	{
+		data->map->map[y + 1][x] = 'P';
+		data->img->e = 0;
+	}
 	data->map->map[y][x] = '0';
 	data->map->p[0] = y;
 	data->map->p[1] = x;
@@ -46,11 +62,19 @@ void	move_left(t_data *data, int x, int y)
 {
 	printf("move left\n");
 	data->map->moves++;
-	if (data->map->map[y][x] == 'C')
+	if (data->map->map[y][x - 1] == 'C')
 		data->map->collected += 1;
-	if (data->map->map[y][x] == 'E')
+	if (data->map->map[y][x - 1] == 'E')
+	{
 		ft_check_win(data->map, data->img);
-	data->map->map[y][x - 1] = 'P';
+		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win,
+			data->img->path, x * 30, y * 33);
+	}
+	else
+	{
+		data->map->map[y][x - 1] = 'P';
+		data->img->e = 0;
+	}
 	data->map->map[y][x] = '0';
 	data->map->p[0] = y;
 	data->map->p[1] = x;
@@ -61,11 +85,19 @@ void	move_right(t_data *data, int x, int y)
 {
 	printf("move right\n");
 	data->map->moves++;
-	if (data->map->map[y][x] == 'C')
+	if (data->map->map[y][x + 1] == 'C')
 		data->map->collected += 1;
-	if (data->map->map[y][x] == 'E')
+	if (data->map->map[y][x + 1] == 'E')
+	{
 		ft_check_win(data->map, data->img);
-	data->map->map[y][x + 1] = 'P';
+		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win,
+			data->img->path, x * 30, y * 33);
+	}
+	else
+	{
+		data->map->map[y][x + 1] = 'P';
+		data->img->e = 0;
+	}
 	data->map->map[y][x] = '0';
 	data->map->p[0] = y;
 	data->map->p[1] = x;
@@ -85,11 +117,15 @@ void	ft_rep_img(t_data *data, void *new_img, int x, int y)
 	printf("x et y = [%d, %d] \n", x, y);
 	if (data->img->e == 0)
 		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win, data->img->path, i, j);
-	if (data->img->e == 1)
+	if (data->map->map[data->map->p[0]][data->map->p[1]] == 'E')
 	{
-		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win, data->img->path, x, y);
-		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win, data->img->exit, x, y);
+		printf("if e = 1\n");
+		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win, data->img->path, i, j);
+		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win, data->img->exit, i, j);
+		data->img->e = 0;
 	}
-	data->img->e = 0;
 	mlx_put_image_to_window(data->img->mlx, data->img->mlx_win, new_img, x, y);
 }
+
+// juste verifie si la case d'ou tu viens est le E (normalement quand tu es sur exit oui vu que tu find e)
+// et si c'est le cas tu remplace par path et exita

@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:27:56 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 10:00:28 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 13:23:27 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	ft_loop_map(t_img	*img, t_map *map)
 	while (map->map[i])
 	{
 		j = 0;
+		map->w = 0;
 		while (map->map[i][j] && map->map)
 		{
 			ft_put_img(img, map->map[i][j], map);
@@ -66,7 +67,6 @@ void	ft_loop_map(t_img	*img, t_map *map)
 		}
 		i++;
 		map->h += 33;
-		map->w = 0;
 	}
 }
 
