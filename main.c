@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:27:56 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/09 17:36:15 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 10:00:28 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,4 @@ void	ft_loop_map(t_img	*img, t_map *map)
 	}
 }
 
-// faire les mouvements individuellement
-// encoder les key values dans le .h
 // parser le chemin voir s'il est faisable

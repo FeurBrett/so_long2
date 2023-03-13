@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:52:59 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/09 18:10:51 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 10:19:33 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	move_up(t_map *map, t_img *img, int x, int y)
 {
+	printf("move up\n");
 	map->moves++;
 	// write(1, "Player moves : ", 15);
 	// if (map->moves < 10)
@@ -25,19 +26,20 @@ void	move_up(t_map *map, t_img *img, int x, int y)
 	// else
 	// 	write(1, &map->moves, 4);
 	// write(1, "\n", 1);
-	if (map->map[x][y] == 'C')
+	if (map->map[y][x] == 'C')
 		map->collected += 1;
-	if (map->map[x][y] == 'E')
+	if (map->map[y][x] == 'E')
 		ft_check_win(map, img);
-	map->map[x][y] = 'P';
-	map->map[x][y + 1] = '0';
-	map->p[0] = x;
-	map->p[1] = y;
+	map->map[y - 1][x] = 'P';
+	map->map[y][x] = '0';
+	map->p[0] = y;
+	map->p[1] = x;
 	ft_rep_img(img, img->up, x, y);
 }
 
 void	move_down(t_map *map, t_img *img, int x, int y)
 {
+	printf("move down\n");
 	map->moves++;
 	// write(1, "Player moves : ", 15);
 	// if (map->moves < 10)
@@ -49,19 +51,20 @@ void	move_down(t_map *map, t_img *img, int x, int y)
 	// else
 	// 	write(1, &map->moves, 4);
 	// write(1, "\n", 1);
-	if (map->map[x][y] == 'C')
+	if (map->map[y][x] == 'C')
 		map->collected += 1;
-	if (map->map[x][y] == 'E')
+	if (map->map[y][x] == 'E')
 		ft_check_win(map, img);
-	map->map[x][y] = 'P';
-	map->map[x][y - 1] = '0';
-	map->p[0] = x;
-	map->p[1] = y;
-	ft_rep_img(img, img->down, x, y);
+	map->map[y + 1][x] = 'P';
+	map->map[y][x] = '0';
+	map->p[0] = y;
+	map->p[1] = x;
+	ft_rep_img(img, img->down, x, y + 1);
 }
 
 void	move_left(t_map *map, t_img *img, int x, int y)
 {
+		printf("move left\n");
 	map->moves++;
 	// write(1, "Player moves : ", 15);
 	// if (map->moves < 10)
@@ -73,19 +76,20 @@ void	move_left(t_map *map, t_img *img, int x, int y)
 	// else
 	// 	write(1, &map->moves, 4);
 	// write(1, "\n", 1);
-	if (map->map[x][y] == 'C')
+	if (map->map[y][x] == 'C')
 		map->collected += 1;
-	if (map->map[x][y] == 'E')
+	if (map->map[y][x] == 'E')
 		ft_check_win(map, img);
-	map->map[x][y] = 'P';
-	map->map[x + 1][y] = '0';
-	map->p[0] = x;
-	map->p[1] = y;
+	map->map[y][x - 1] = 'P';
+	map->map[y][x] = '0';
+	map->p[0] = y;
+	map->p[1] = x;
 	ft_rep_img(img, img->left, x, y);
 }
 
 void	move_right(t_map *map, t_img *img, int x, int y)
 {
+	printf("move right\n");
 	map->moves++;
 	// printf ("moves = %d\n", map->moves);
 	// write(1, "Player moves : ", 15);
@@ -98,14 +102,14 @@ void	move_right(t_map *map, t_img *img, int x, int y)
 	// else
 	// 	write(1, &map->moves, 4);
 	// write(1, "\n", 1);
-	if (map->map[x][y] == 'C')
+	if (map->map[y][x] == 'C')
 		map->collected += 1;
-	if (map->map[x][y] == 'E')
+	if (map->map[y][x] == 'E')
 		ft_check_win(map, img);
-	map->map[x][y] = 'P';
-	map->map[x - 1][y] = '0';
-	map->p[0] = x;
-	map->p[1] = y;
+	map->map[y][x + 1] = 'P';
+	map->map[y][x] = '0';
+	map->p[0] = y;
+	map->p[1] = x;
 	ft_rep_img(img, img->right, x, y);
 }
 
