@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:30:01 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 12:09:11 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:04:10 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ typedef struct s_map
 
 typedef struct s_img
 {
-	int		e;
 	void	*left;
 	void	*right;
 	void	*up;
@@ -111,10 +110,9 @@ int		ft_keycode(int keycode, t_data *data);
 
 void	ft_loop_map(t_img	*img, t_map *map);
 void	so_long(t_map *map);
-void	ft_win(t_map *map, t_img *img);
 void	ft_fill_data(t_data *data, t_img *img, t_map *map);
-void	ft_check_win(t_map *map, t_img *img);
-void	ft_win(t_map *map, t_img *img);
+void	ft_check_win(t_map *map);
+void	ft_win(int i);
 void	ft_rep_img(t_data *data, void *new_img, int x, int y);
 
 #endif

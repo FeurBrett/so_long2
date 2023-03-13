@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 14:14:47 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/09 17:20:32 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:01:20 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_error_map(int a)
 
 int	red_cross(t_img	*img)
 {
-	img->e = 0;
+	img->mlx = img->mlx;
 	exit(EXIT_SUCCESS);
 	return (0);
 }
