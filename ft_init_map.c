@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:58:49 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/09 16:06:59 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 15:48:14 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,13 @@ char	*ft_readmap(int fd)
 		map = ft_strjoin(map, buffer);
 		if (!map)
 			ft_error_map(6);
+	}
+	i = 0;
+	while (map[i])
+	{
+		if (map[i] == '\n' && map[i + 1] == '\n')
+			ft_error_map(5);
+		i++;
 	}
 	return (map);
 }

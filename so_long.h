@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:30:01 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 15:04:10 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:07:08 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,12 @@ typedef struct s_data
 	t_img	*img;
 }	t_data;
 
+typedef struct s_path
+{
+	int	collectable;
+	int	exit;
+}	t_path;
+
 // Map functions
 
 void	ft_check_ber(char *n);
@@ -90,6 +96,8 @@ char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(const char *str);
 char	**ft_split(char const *s, char c);
 void	ft_error_map(int a);
+char	*ft_strdup(const char *s1);
+void	ft_free(char **map);
 
 // moves
 
@@ -103,7 +111,7 @@ void	move_down(t_data *data, int x, int y);
 
 // key events
 
-int		red_cross(t_img	*img);
+int		red_cross(int i);
 int		ft_keycode(int keycode, t_data *data);
 
 // Actual program
@@ -112,7 +120,14 @@ void	ft_loop_map(t_img	*img, t_map *map);
 void	so_long(t_map *map);
 void	ft_fill_data(t_data *data, t_img *img, t_map *map);
 void	ft_check_win(t_map *map);
-void	ft_win(int i);
+void	ft_win(int i, t_map *map);
 void	ft_rep_img(t_data *data, void *new_img, int x, int y);
+
+// Path finding
+
+char	**map_cpy(t_map *data);
+void	pre_path_finding(t_map *data);
+int		path_finding(char **map, int i, int j, t_path *path);
+
 
 #endif

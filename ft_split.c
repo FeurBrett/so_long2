@@ -6,13 +6,13 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 13:26:28 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/01 10:04:05 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:56:54 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static char	**ft_free(char **str, int size)
+static char	**ft_free_tab(char **str, int size)
 {
 	while (size >= 0)
 	{
@@ -90,7 +90,7 @@ char	**ft_split(char const *s, char c)
 		n = ft_check_if_null_word((char *)s, c);
 		tab[i] = ft_strcpy((char *)s, n);
 		if (!tab[i])
-			return (ft_free(tab, size));
+			return (ft_free_tab(tab, size));
 		s += n;
 		i++;
 	}

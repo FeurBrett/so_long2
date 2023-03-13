@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:27:56 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 13:23:27 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:07:52 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,9 @@ void	so_long(t_map *map)
 	ft_init_img(&img, map);
 	ft_fill_img(&img);
 	ft_loop_map(&img, map);
+	pre_path_finding(map);
 	ft_fill_data(&data, &img, map);
-	mlx_hook(img.mlx_win, 17, 0, &red_cross, &img);
+	mlx_hook(img.mlx_win, 17, 0, &red_cross, 0);
 	mlx_hook(img.mlx_win, 2, 0, &ft_keycode, &data);
 	mlx_loop(img.mlx);
 }
@@ -69,5 +70,3 @@ void	ft_loop_map(t_img	*img, t_map *map)
 		map->h += 33;
 	}
 }
-
-// parser le chemin voir s'il est faisable

@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 10:22:46 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/01 10:32:55 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:54:52 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,32 @@ size_t	ft_strlen(const char *str)
 		i++;
 	}
 	return (i);
+}
+
+char	*ft_strdup(const char *s1)
+{
+	size_t	i;
+	char	*dst;
+
+	i = 0;
+	dst = malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (!dst)
+		return (0);
+	while (s1[i])
+	{
+		dst[i] = s1[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}
+
+void	ft_free(char **map)
+{
+	int	e;
+
+	e = -1;
+	while (map[++e])
+		free(map[e]);
+	free(map);
 }
