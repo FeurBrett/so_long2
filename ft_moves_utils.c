@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:52:59 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 15:04:42 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 18:47:57 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	move_up(t_data *data, int x, int y)
 {
 	data->map->moves++;
+	print_moves("moves : ", data->map->moves, data);
 	if (data->map->map[y - 1][x] == 'C')
 		data->map->collected += 1;
 	if (data->map->map[y - 1][x] == 'E')
@@ -37,6 +38,7 @@ void	move_up(t_data *data, int x, int y)
 void	move_down(t_data *data, int x, int y)
 {
 	data->map->moves++;
+	print_moves("moves : ", data->map->moves, data);
 	if (data->map->map[y + 1][x] == 'C')
 		data->map->collected += 1;
 	if (data->map->map[y + 1][x] == 'E')
@@ -59,6 +61,7 @@ void	move_down(t_data *data, int x, int y)
 void	move_left(t_data *data, int x, int y)
 {
 	data->map->moves++;
+	print_moves("moves : ", data->map->moves, data);
 	if (data->map->map[y][x - 1] == 'C')
 		data->map->collected += 1;
 	if (data->map->map[y][x - 1] == 'E')
@@ -81,6 +84,7 @@ void	move_left(t_data *data, int x, int y)
 void	move_right(t_data *data, int x, int y)
 {
 	data->map->moves++;
+	print_moves("moves : ", data->map->moves, data);
 	if (data->map->map[y][x + 1] == 'C')
 		data->map->collected += 1;
 	if (data->map->map[y][x + 1] == 'E')

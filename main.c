@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:27:56 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 17:07:52 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 17:47:41 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	t_map	map;
 	char	*txt;
 
-	if (argc > 2)
+	if (argc != 2)
 		ft_error_map(8);
 	fd = open(argv[1], O_RDONLY);
 	ft_check_ber(argv[1]);

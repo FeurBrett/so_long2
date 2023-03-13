@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:30:01 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 17:07:08 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 18:45:44 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,7 @@ char	**ft_split(char const *s, char c);
 void	ft_error_map(int a);
 char	*ft_strdup(const char *s1);
 void	ft_free(char **map);
+void	*print_moves(char *a, int b, t_data *data);
 
 // moves
 
@@ -129,5 +130,19 @@ char	**map_cpy(t_map *data);
 void	pre_path_finding(t_map *data);
 int		path_finding(char **map, int i, int j, t_path *path);
 
+// ft_printf
+
+int		ft_printf(const char *a, ...);
+int		ft_check_conv(va_list args, const char a);
+int		ft_pr_char(char *a);
+int		ft_putchar(char a);
+int		ft_pr_unsigned(unsigned int a);
+int		ft_pr_int(int a);
+char	*ft_itoa(long int n);
+void	ft_is_point(unsigned long ptr);
+int		ft_pr_point(unsigned long ptr);
+int		ft_pr_hexa(const char x, unsigned int a);
+int		ft_hexa_len(unsigned long nb);
+void	ft_mk_hexa(const char x, unsigned int a);
 
 #endif

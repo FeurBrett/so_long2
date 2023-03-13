@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:58:49 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 15:48:14 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 18:20:07 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ft_fill_map(t_map *map, char *txt)
 
 	len = 0;
 	c = 0;
-	while (txt[len] != '\n')
+	while (txt[len] != '\n' && txt[len])
 		len++;
 	map->w = 0;
 	map->h = 0;
@@ -87,8 +87,6 @@ void	check_characters(t_map *map, int e, int p)
 	int	j;
 
 	j = 0;
-	if (map->map[0][0] == '\n')
-		ft_error_map(5);
 	while (map->map[j])
 	{
 		i = 0;

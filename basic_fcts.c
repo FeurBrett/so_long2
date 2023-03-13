@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 10:22:46 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 16:54:52 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/13 18:50:07 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,21 @@ void	ft_free(char **map)
 	while (map[++e])
 		free(map[e]);
 	free(map);
+}
+
+void	*print_moves(char *a, int b, t_data *d)
+{
+	char	*newchar;
+	char	*c;
+
+	c = ft_strdup(a);
+	newchar = ft_strjoin(c, ft_itoa(b));
+	mlx_put_image_to_window(d->img->mlx, d->img->mlx_win,
+		d->img->wall, 0, 0);
+	mlx_put_image_to_window(d->img->mlx, d->img->mlx_win,
+		d->img->wall, 30, 0);
+	mlx_put_image_to_window(d->img->mlx, d->img->mlx_win,
+		d->img->wall, 60, 0);
+	mlx_string_put(d->img->mlx, d->img->mlx_win, 10, 10, 0xFFFFFF, newchar);
+	return (newchar);
 }
