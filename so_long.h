@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:30:01 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/08 17:07:00 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/09 17:45:48 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,12 @@ typedef struct s_map
 	int		p[2];
 	int		moves;
 	int		coins;
+	int		collected;
 }	t_map;
 
 typedef struct s_img
 {
+	int		e;
 	void	*left;
 	void	*right;
 	void	*up;
@@ -92,17 +94,26 @@ void	ft_error_map(int a);
 
 // moves
 
-void	ft_moves(t_map *map, t_img *img, int keycode);
+void	ft_moves(t_data *data, int keycode);
 void	ft_find_p(t_map *map, int i, int j);
 void	move_up(t_map *map, t_img *img, int x, int y);
 void	move_right(t_map *map, t_img *img, int x, int y);
 void	move_left(t_map *map, t_img *img, int x, int y);
 void	move_down(t_map *map, t_img *img, int x, int y);
 
+// key events
+
+int		red_cross(t_img	*img);
+int		ft_keycode(int keycode, t_data *data);
+
 // Actual program
 
 void	ft_loop_map(t_img	*img, t_map *map);
 void	so_long(t_map *map);
 void	ft_win(t_map *map, t_img *img);
+void	ft_fill_data(t_data *data, t_img *img, t_map *map);
+void	ft_check_win(t_map *map, t_img *img);
+void	ft_win(t_map *map, t_img *img);
+void	ft_rep_img(t_img *img, void *new_img, int x, int y);
 
 #endif
