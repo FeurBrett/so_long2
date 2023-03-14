@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:52:59 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 18:47:57 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/14 11:51:19 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	move_up(t_data *data, int x, int y)
 		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win,
 			data->img->path, x * 30, y * 33);
 	}
+	else if (data->map->map[y - 1][x] == 'X')
+		ft_foe(data);
 	else
 		data->map->map[y - 1][x] = 'P';
 	if (data->map->map[y][x] == 'E')
@@ -47,6 +49,8 @@ void	move_down(t_data *data, int x, int y)
 		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win,
 			data->img->path, x * 30, y * 33);
 	}
+	else if (data->map->map[y + 1][x] == 'X')
+		ft_foe(data);
 	else
 		data->map->map[y + 1][x] = 'P';
 	if (data->map->map[y][x] == 'E')
@@ -70,6 +74,8 @@ void	move_left(t_data *data, int x, int y)
 		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win,
 			data->img->path, x * 30, y * 33);
 	}
+	else if (data->map->map[y][x - 1] == 'X')
+		ft_foe(data);
 	else
 		data->map->map[y][x - 1] = 'P';
 	if (data->map->map[y][x] == 'E')
@@ -93,6 +99,8 @@ void	move_right(t_data *data, int x, int y)
 		mlx_put_image_to_window(data->img->mlx, data->img->mlx_win,
 			data->img->path, x * 30, y * 33);
 	}
+	else if (data->map->map[y][x + 1] == 'X')
+		ft_foe(data);
 	else
 		data->map->map[y][x + 1] = 'P';
 	if (data->map->map[y][x] == 'E')

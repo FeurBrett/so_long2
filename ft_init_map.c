@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 09:58:49 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 18:20:07 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/14 11:44:44 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,8 @@ void	check_characters(t_map *map, int e, int p)
 				e++;
 			else if (map->map[j][i] == 'P')
 				p++;
-			else if (map->map[j][i] != '0' && map->map[j][i] != '1')
+			else if (map->map[j][i] != '0' && map->map[j][i] != '1'
+				&& map->map[j][i] != 'X')
 				ft_error_map(1);
 			i++;
 		}

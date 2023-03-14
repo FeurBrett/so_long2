@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:30:01 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 18:45:44 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:47:52 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_img
 	void	*collect;
 	void	*path;
 	void	*wall;
+	void	*foe;
 	void	*mlx;
 	void	*mlx_win;
 }	t_img;
@@ -109,6 +110,7 @@ void	move_up(t_data *data, int x, int y);
 void	move_right(t_data *data, int x, int y);
 void	move_left(t_data *data, int x, int y);
 void	move_down(t_data *data, int x, int y);
+void	ft_foe(t_data *data);
 
 // key events
 

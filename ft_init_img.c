@@ -6,7 +6,7 @@
 /*   By: apirovan <apirovan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:28:57 by apirovan          #+#    #+#             */
-/*   Updated: 2023/03/13 15:00:27 by apirovan         ###   ########.fr       */
+/*   Updated: 2023/03/14 12:47:25 by apirovan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	ft_init_img(t_img *img, t_map *map)
 	img->collect = NULL;
 	img->path = NULL;
 	img->wall = NULL;
+	img->foe = NULL;
 	img->mlx = NULL;
 	img->mlx_win = NULL;
 	img->mlx = mlx_init();
@@ -41,6 +42,7 @@ void	ft_fill_img(t_img *img)
 	img->exit = mlx_xpm_file_to_image(img->mlx, "./exit.xpm", &a, &b);
 	img->path = mlx_xpm_file_to_image(img->mlx, "./path.xpm", &a, &b);
 	img->wall = mlx_xpm_file_to_image(img->mlx, "./wall.xpm", &a, &b);
+	img->foe = mlx_xpm_file_to_image(img->mlx, "./mewtwo.xpm", &a, &b);
 	if (!img->wall || !img->left || !img->right || !img->exit || !img->collect
 		|| !img->path || !img->up || !img->down)
 	{
@@ -53,7 +55,7 @@ void	ft_put_img(t_img *i, char a, t_map *m)
 {
 	if (a == '1')
 		mlx_put_image_to_window(i->mlx, i->mlx_win, i->wall, m->w, m->h);
-	if (a == '0' || a == 'P' || a == 'E' || a == 'C')
+	if (a == '0' || a == 'P' || a == 'E' || a == 'C' || a == 'X')
 		mlx_put_image_to_window(i->mlx, i->mlx_win, i->path, m->w, m->h);
 	if (a == 'P')
 		mlx_put_image_to_window(i->mlx, i->mlx_win, i->down, m->w, m->h);
@@ -61,6 +63,8 @@ void	ft_put_img(t_img *i, char a, t_map *m)
 		mlx_put_image_to_window(i->mlx, i->mlx_win, i->exit, m->w, m->h);
 	if (a == 'C')
 		mlx_put_image_to_window(i->mlx, i->mlx_win, i->collect, m->w, m->h);
+	if (a == 'X')
+		mlx_put_image_to_window(i->mlx, i->mlx_win, i->foe, m->w, m->h);
 }
 
 void	ft_destroy_img(t_img *img)
